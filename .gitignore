@@ -1,0 +1,6 @@
+
+# Evitar subir la carpeta de archivos temporales de Python
+__pycache__/
+
+# Evitar subir archivos compilados de Python
+*.py[cod]
