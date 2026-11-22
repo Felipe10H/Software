@@ -1,0 +1,243 @@
+2026-11-22 00:11:00 | ERROR | Falló la operación de demostración: Registrar cliente con correo inválido
+Traceback (most recent call last):
+  File "/mnt/data/SoftwareFJ/main.py", line 22, in probar
+    resultado = accion()
+  File "/mnt/data/SoftwareFJ/main.py", line 37, in <lambda>
+    lambda: Cliente("C002", "Carlos", "correo-invalido", "3001234567"))
+            ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/data/SoftwareFJ/cliente.py", line 9, in __init__
+    self.__correo = self._validar_correo(correo)
+                    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/mnt/data/SoftwareFJ/cliente.py", line 21, in _validar_correo
+    raise DatoInvalidoError("El correo electrónico no tiene un formato válido.")
+excepciones.DatoInvalidoError: El correo electrónico no tiene un formato válido.
+2026-11-22 00:11:00 | ERROR | Falló la operación de demostración: Intentar crear servicio con tarifa negativa
+Traceback (most recent call last):
+  File "/mnt/data/SoftwareFJ/main.py", line 22, in probar
+    resultado = accion()
+  File "/mnt/data/SoftwareFJ/main.py", line 57, in <lambda>
+    lambda: ReservaSala("S004", "Sala inválida", -10, 8))
+            ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/data/SoftwareFJ/servicio.py", line 54, in __init__
+    super().__init__(identificador, nombre, tarifa, disponible)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/data/SoftwareFJ/servicio.py", line 12, in __init__
+    raise DatoInvalidoError("La tarifa debe ser un número mayor que cero.")
+excepciones.DatoInvalidoError: La tarifa debe ser un número mayor que cero.
+2026-11-22 00:11:00 | ERROR | Falló la operación de demostración: Crear reserva con cliente inexistente
+Traceback (most recent call last):
+  File "/mnt/data/SoftwareFJ/main.py", line 22, in probar
+    resultado = accion()
+  File "/mnt/data/SoftwareFJ/main.py", line 74, in <lambda>
+    lambda: sistema.crear_reserva("R002", "NO-EXISTE", "S001", 1))
+            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/data/SoftwareFJ/sistema.py", line 48, in crear_reserva
+    raise DatoInvalidoError(f"No existe el cliente {cliente_id}.")
+excepciones.DatoInvalidoError: No existe el cliente NO-EXISTE.
+2026-11-22 00:11:00 | ERROR | Falló la operación de demostración: Crear reserva con duración cero
+Traceback (most recent call last):
+  File "/mnt/data/SoftwareFJ/main.py", line 22, in probar
+    resultado = accion()
+  File "/mnt/data/SoftwareFJ/main.py", line 78, in <lambda>
+    lambda: sistema.crear_reserva("R003", "C001", "S002", 0))
+            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/data/SoftwareFJ/sistema.py", line 53, in crear_reserva
+    reserva = Reserva(identificador, cliente, servicio, duracion)
+  File "/mnt/data/SoftwareFJ/reserva.py", line 14, in __init__
+    servicio.validar_parametros(duracion)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/mnt/data/SoftwareFJ/servicio.py", line 78, in validar_parametros
+    raise DatoInvalidoError("La duración del alquiler debe ser mayor que cero.")
+excepciones.DatoInvalidoError: La duración del alquiler debe ser mayor que cero.
+2026-11-22 00:11:00 | ERROR | Falló la operación de demostración: Intentar crear reserva de servicio no disponible
+Traceback (most recent call last):
+  File "/mnt/data/SoftwareFJ/main.py", line 22, in probar
+    resultado = accion()
+  File "/mnt/data/SoftwareFJ/main.py", line 85, in <lambda>
+    lambda: sistema.crear_reserva("R004", "C001", "S005", 1))
+            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/data/SoftwareFJ/sistema.py", line 53, in crear_reserva
+    reserva = Reserva(identificador, cliente, servicio, duracion)
+  File "/mnt/data/SoftwareFJ/reserva.py", line 14, in __init__
+    servicio.validar_parametros(duracion)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/mnt/data/SoftwareFJ/servicio.py", line 60, in validar_parametros
+    self.validar_disponibilidad()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/mnt/data/SoftwareFJ/servicio.py", line 31, in validar_disponibilidad
+    raise ServicioNoDisponibleError(f"El servicio '{self.nombre}' no está disponible.")
+excepciones.ServicioNoDisponibleError: El servicio 'Sala ocupada' no está disponible.
+2026-11-22 00:11:00 | ERROR | Error al confirmar reserva R001
+Traceback (most recent call last):
+  File "/mnt/data/SoftwareFJ/reserva.py", line 40, in confirmar
+    raise OperacionNoPermitidaError("Solo se pueden confirmar reservas pendientes.")
+excepciones.OperacionNoPermitidaError: Solo se pueden confirmar reservas pendientes.
+2026-11-22 00:11:00 | ERROR | Falló la operación de demostración: Intentar confirmar de nuevo una reserva confirmada
+Traceback (most recent call last):
+  File "/mnt/data/SoftwareFJ/reserva.py", line 40, in confirmar
+    raise OperacionNoPermitidaError("Solo se pueden confirmar reservas pendientes.")
+excepciones.OperacionNoPermitidaError: Solo se pueden confirmar reservas pendientes.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/data/SoftwareFJ/main.py", line 22, in probar
+    resultado = accion()
+  File "/mnt/data/SoftwareFJ/main.py", line 88, in <lambda>
+    probar("Intentar confirmar de nuevo una reserva confirmada", lambda: reserva1.confirmar())
+                                                                         ~~~~~~~~~~~~~~~~~~^^
+  File "/mnt/data/SoftwareFJ/reserva.py", line 46, in confirmar
+    raise ReservaError("No fue posible confirmar la reserva.") from exc
+excepciones.ReservaError: No fue posible confirmar la reserva.
+2026-11-22 00:11:00 | ERROR | Error al procesar reserva R001
+Traceback (most recent call last):
+  File "/mnt/data/SoftwareFJ/reserva.py", line 57, in procesar
+    raise OperacionNoPermitidaError("No se puede procesar una reserva cancelada.")
+excepciones.OperacionNoPermitidaError: No se puede procesar una reserva cancelada.
+2026-11-22 00:11:00 | ERROR | Falló la operación de demostración: Intentar procesar una reserva cancelada
+Traceback (most recent call last):
+  File "/mnt/data/SoftwareFJ/reserva.py", line 57, in procesar
+    raise OperacionNoPermitidaError("No se puede procesar una reserva cancelada.")
+excepciones.OperacionNoPermitidaError: No se puede procesar una reserva cancelada.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/data/SoftwareFJ/main.py", line 22, in probar
+    resultado = accion()
+  File "/mnt/data/SoftwareFJ/main.py", line 94, in <lambda>
+    probar("Intentar procesar una reserva cancelada", lambda: reserva1.procesar())
+                                                              ~~~~~~~~~~~~~~~~~^^
+  File "/mnt/data/SoftwareFJ/reserva.py", line 61, in procesar
+    raise ReservaError("Falló el procesamiento de la reserva.") from exc
+excepciones.ReservaError: Falló el procesamiento de la reserva.
+2026-11-21 19:21:39 | ERROR | Falló la operación de demostración: Registrar cliente con correo inválido
+Traceback (most recent call last):
+  File "C:\Users\madri\Documents\Software\SoftwareFJ\main.py", line 22, in probar
+    resultado = accion()
+  File "C:\Users\madri\Documents\Software\SoftwareFJ\main.py", line 37, in <lambda>
+    lambda: Cliente("C002", "Carlos", "correo-invalido", "3001234567"))
+            ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\madri\Documents\Software\SoftwareFJ\cliente.py", line 9, in __init__
+    self.__correo = self._validar_correo(correo)
+                    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\madri\Documents\Software\SoftwareFJ\cliente.py", line 21, in _validar_correo
+    raise DatoInvalidoError("El correo electrónico no tiene un formato válido.")
+excepciones.DatoInvalidoError: El correo electrónico no tiene un formato válido.
+2026-11-21 19:21:40 | ERROR | Falló la operación de demostración: Intentar crear servicio con tarifa negativa
+Traceback (most recent call last):
+  File "C:\Users\madri\Documents\Software\SoftwareFJ\main.py", line 22, in probar
+    resultado = accion()
+  File "C:\Users\madri\Documents\Software\SoftwareFJ\main.py", line 57, in <lambda>
+    lambda: ReservaSala("S004", "Sala inválida", -10, 8))
+            ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\madri\Documents\Software\SoftwareFJ\servicio.py", line 54, in __init__
+    super().__init__(identificador, nombre, tarifa, disponible)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\madri\Documents\Software\SoftwareFJ\servicio.py", line 12, in __init__
+    raise DatoInvalidoError("La tarifa debe ser un número mayor que cero.")
+excepciones.DatoInvalidoError: La tarifa debe ser un número mayor que cero.
+2026-11-21 19:21:40 | ERROR | Falló la operación de demostración: Crear reserva con cliente inexistente
+Traceback (most recent call last):
+  File "C:\Users\madri\Documents\Software\SoftwareFJ\main.py", line 22, in probar
+    resultado = accion()
+  File "C:\Users\madri\Documents\Software\SoftwareFJ\main.py", line 74, in <lambda>
+    lambda: sistema.crear_reserva("R002", "NO-EXISTE", "S001", 1))
+            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\madri\Documents\Software\SoftwareFJ\sistema.py", line 48, in crear_reserva
+    raise DatoInvalidoError(f"No existe el cliente {cliente_id}.")
+excepciones.DatoInvalidoError: No existe el cliente NO-EXISTE.
+2026-11-21 19:21:40 | ERROR | Falló la operación de demostración: Crear reserva con duración cero
+Traceback (most recent call last):
+  File "C:\Users\madri\Documents\Software\SoftwareFJ\main.py", line 22, in probar
+    resultado = accion()
+  File "C:\Users\madri\Documents\Software\SoftwareFJ\main.py", line 78, in <lambda>
+    lambda: sistema.crear_reserva("R003", "C001", "S002", 0))
+            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\madri\Documents\Software\SoftwareFJ\sistema.py", line 53, in crear_reserva
+    reserva = Reserva(identificador, cliente, servicio, duracion)
+  File "C:\Users\madri\Documents\Software\SoftwareFJ\reserva.py", line 14, in __init__
+    servicio.validar_parametros(duracion)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\madri\Documents\Software\SoftwareFJ\servicio.py", line 78, in validar_parametros
+    raise DatoInvalidoError("La duración del alquiler debe ser mayor que cero.")
+excepciones.DatoInvalidoError: La duración del alquiler debe ser mayor que cero.
+2026-11-21 19:21:40 | ERROR | Falló la operación de demostración: Intentar crear reserva de servicio no disponible
+Traceback (most recent call last):
+  File "C:\Users\madri\Documents\Software\SoftwareFJ\main.py", line 22, in probar
+    resultado = accion()
+  File "C:\Users\madri\Documents\Software\SoftwareFJ\main.py", line 85, in <lambda>
+    lambda: sistema.crear_reserva("R004", "C001", "S005", 1))
+            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\madri\Documents\Software\SoftwareFJ\sistema.py", line 53, in crear_reserva
+    reserva = Reserva(identificador, cliente, servicio, duracion)
+  File "C:\Users\madri\Documents\Software\SoftwareFJ\reserva.py", line 14, in __init__
+    servicio.validar_parametros(duracion)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\madri\Documents\Software\SoftwareFJ\servicio.py", line 60, in validar_parametros
+    self.validar_disponibilidad()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\madri\Documents\Software\SoftwareFJ\servicio.py", line 31, in validar_disponibilidad
+    raise ServicioNoDisponibleError(f"El servicio '{self.nombre}' no está disponible.")
+excepciones.ServicioNoDisponibleError: El servicio 'Sala ocupada' no está disponible.
+2026-11-21 19:21:40 | ERROR | Error al confirmar reserva R001
+Traceback (most recent call last):
+  File "C:\Users\madri\Documents\Software\SoftwareFJ\reserva.py", line 40, in confirmar
+    raise OperacionNoPermitidaError("Solo se pueden confirmar reservas pendientes.")
+excepciones.OperacionNoPermitidaError: Solo se pueden confirmar reservas pendientes.
+2026-11-21 19:21:40 | ERROR | Falló la operación de demostración: Intentar confirmar de nuevo una reserva confirmada
+Traceback (most recent call last):
+  File "C:\Users\madri\Documents\Software\SoftwareFJ\reserva.py", line 40, in confirmar
+    raise OperacionNoPermitidaError("Solo se pueden confirmar reservas pendientes.")
+excepciones.OperacionNoPermitidaError: Solo se pueden confirmar reservas pendientes.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\madri\Documents\Software\SoftwareFJ\main.py", line 22, in probar
+    resultado = accion()
+  File "C:\Users\madri\Documents\Software\SoftwareFJ\main.py", line 88, in <lambda>
+    probar("Intentar confirmar de nuevo una reserva confirmada", lambda: reserva1.confirmar())
+                                                                         ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\madri\Documents\Software\SoftwareFJ\reserva.py", line 46, in confirmar
+    raise ReservaError("No fue posible confirmar la reserva.") from exc
+excepciones.ReservaError: No fue posible confirmar la reserva.
+2026-11-21 19:21:40 | ERROR | Error al procesar reserva R001
+Traceback (most recent call last):
+  File "C:\Users\madri\Documents\Software\SoftwareFJ\reserva.py", line 57, in procesar
+    raise OperacionNoPermitidaError("No se puede procesar una reserva cancelada.")
+excepciones.OperacionNoPermitidaError: No se puede procesar una reserva cancelada.
+2026-11-21 19:21:40 | ERROR | Falló la operación de demostración: Intentar procesar una reserva cancelada
+Traceback (most recent call last):
+  File "C:\Users\madri\Documents\Software\SoftwareFJ\reserva.py", line 57, in procesar
+    raise OperacionNoPermitidaError("No se puede procesar una reserva cancelada.")
+excepciones.OperacionNoPermitidaError: No se puede procesar una reserva cancelada.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\madri\Documents\Software\SoftwareFJ\main.py", line 22, in probar
+    resultado = accion()
+  File "C:\Users\madri\Documents\Software\SoftwareFJ\main.py", line 94, in <lambda>
+    probar("Intentar procesar una reserva cancelada", lambda: reserva1.procesar())
+                                                              ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\madri\Documents\Software\SoftwareFJ\reserva.py", line 61, in procesar
+    raise ReservaError("Falló el procesamiento de la reserva.") from exc
+excepciones.ReservaError: Falló el procesamiento de la reserva.
+2026-11-21 19:29:45 | ERROR | Error controlado en el menú
+Traceback (most recent call last):
+  File "C:\Users\madri\Documents\Software\SoftwareFJ\main.py", line 146, in menu
+    reserva = sistema.crear_reserva(
+        input("ID de reserva: "),
+    ...<2 lines>...
+        float(input("Duración en horas: "))
+    )
+  File "C:\Users\madri\Documents\Software\SoftwareFJ\sistema.py", line 50, in crear_reserva
+    raise DatoInvalidoError(f"No existe el servicio {servicio_id}.")
+excepciones.DatoInvalidoError: No existe el servicio S001.
+2026-11-21 19:43:30 | ERROR | Error controlado en el menú
+Traceback (most recent call last):
+  File "C:\Users\madri\Documents\Software\SoftwareFJ\main.py", line 150, in menu
+    float(input("Duración en horas: "))
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: could not convert string to float: ''

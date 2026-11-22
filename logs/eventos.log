@@ -1,0 +1,42 @@
+2026-11-22 00:11:00 | INFO | Cliente registrado: C001
+2026-11-22 00:11:00 | INFO | Cliente registrado: C003
+2026-11-22 00:11:00 | INFO | Servicio agregado: S001
+2026-11-22 00:11:00 | INFO | Servicio agregado: S002
+2026-11-22 00:11:00 | INFO | Servicio agregado: S003
+2026-11-22 00:11:00 | INFO | Reserva creada: R001
+2026-11-22 00:11:00 | INFO | Reserva R001 confirmada.
+2026-11-22 00:11:00 | INFO | Reserva R001 procesada. Costo: 107100.00
+2026-11-22 00:11:00 | INFO | Finalizó intento de procesamiento de reserva R001.
+2026-11-22 00:11:00 | INFO | Servicio agregado: S005
+2026-11-22 00:11:00 | INFO | Reserva R001 cancelada.
+2026-11-22 00:11:00 | INFO | Finalizó intento de procesamiento de reserva R001.
+2026-11-21 19:21:39 | INFO | Cliente registrado: C001
+2026-11-21 19:21:40 | INFO | Cliente registrado: C003
+2026-11-21 19:21:40 | INFO | Servicio agregado: S001
+2026-11-21 19:21:40 | INFO | Servicio agregado: S002
+2026-11-21 19:21:40 | INFO | Servicio agregado: S003
+2026-11-21 19:21:40 | INFO | Reserva creada: R001
+2026-11-21 19:21:40 | INFO | Reserva R001 confirmada.
+2026-11-21 19:21:40 | INFO | Reserva R001 procesada. Costo: 107100.00
+2026-11-21 19:21:40 | INFO | Finalizó intento de procesamiento de reserva R001.
+2026-11-21 19:21:40 | INFO | Servicio agregado: S005
+2026-11-21 19:21:40 | INFO | Reserva R001 cancelada.
+2026-11-21 19:21:40 | INFO | Finalizó intento de procesamiento de reserva R001.
+2026-11-21 19:24:45 | INFO | Cliente registrado: 1020458627
+2026-11-21 19:24:45 | INFO | Opción del menú procesada correctamente: 1
+2026-11-21 19:27:11 | INFO | Servicio agregado: 6001
+2026-11-21 19:27:11 | INFO | Opción del menú procesada correctamente: 2
+2026-11-21 19:27:57 | INFO | Opción del menú procesada correctamente: 4
+2026-11-21 19:30:05 | INFO | Opción del menú procesada correctamente: 4
+2026-11-21 19:35:59 | INFO | Opción del menú procesada correctamente: 4
+2026-11-21 19:43:13 | INFO | Servicio agregado: R001
+2026-11-21 19:43:13 | INFO | Opción del menú procesada correctamente: 2
+2026-11-21 19:43:36 | INFO | Opción del menú procesada correctamente: 4
+2026-11-21 19:44:07 | INFO | Cliente registrado: 1009454628
+2026-11-21 19:44:07 | INFO | Opción del menú procesada correctamente: 1
+2026-11-21 19:44:41 | INFO | Reserva creada: S001
+2026-11-21 19:44:50 | INFO | Reserva S001 confirmada.
+2026-11-21 19:44:50 | INFO | Opción del menú procesada correctamente: 3
+2026-11-21 19:44:55 | INFO | Opción del menú procesada correctamente: 4
+2026-11-21 19:49:17 | INFO | Opción del menú procesada correctamente: 4
+2026-11-21 19:49:39 | INFO | Opción del menú procesada correctamente: 4
