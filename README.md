@@ -1,5 +1,5 @@
 
-# Software FJ
+# Software 
 
 ## Descripción
 Software es un sistema desarrollado en Python para gestionar clientes, servicios y reservas. El proyecto utiliza programación orientada a objetos y manejo de excepciones.
